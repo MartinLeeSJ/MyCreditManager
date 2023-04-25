@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5BC0BF4529F65E74002C9241 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0BF4429F65E74002C9241 /* main.swift */; };
 		5BC0BF5229F65EEF002C9241 /* MyCreditManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0BF5129F65EEF002C9241 /* MyCreditManagerTests.swift */; };
-		5BC0BF5829F65F63002C9241 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC0BF5729F65F63002C9241 /* ArgumentParser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +35,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC0BF5829F65F63002C9241 /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +99,6 @@
 			);
 			name = MyCreditManager;
 			packageProductDependencies = (
-				5BC0BF5729F65F63002C9241 /* ArgumentParser */,
 			);
 			productName = MyCreditManager;
 			productReference = 5BC0BF4129F65E74002C9241 /* MyCreditManager */;
@@ -152,7 +149,6 @@
 			);
 			mainGroup = 5BC0BF3829F65E74002C9241;
 			packageReferences = (
-				5BC0BF5629F65F63002C9241 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 			);
 			productRefGroup = 5BC0BF4229F65E74002C9241 /* Products */;
 			projectDirPath = "";
@@ -400,25 +396,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5BC0BF5629F65F63002C9241 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5BC0BF5729F65F63002C9241 /* ArgumentParser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5BC0BF5629F65F63002C9241 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
-			productName = ArgumentParser;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5BC0BF3929F65E74002C9241 /* Project object */;
 }
