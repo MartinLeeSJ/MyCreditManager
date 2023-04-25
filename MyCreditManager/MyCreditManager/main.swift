@@ -58,9 +58,9 @@ struct MyCreditManager {
                 switch input {
                 case "1": addStudent()
                 case "2": deleteStudent()
-                case "3": addCredit()
-                case "4": addStudent()
-                case "5": addStudent()
+                case "3": addOrEditCredit()
+                case "4": deleteCredit()
+                case "5": checkCredits()
                 default: printSomethingWrong()
                 }
             }
@@ -128,7 +128,7 @@ struct MyCreditManager {
         }
     }
     
-    mutating func addCredit() {
+    mutating func addOrEditCredit() {
         while true {
             print("""
                     성적을 추가할 학생의 이름, 과목이름, 성적(A+,A,F 등)을 띄어쓰기로 구분하여 차례로 작성해주세요.
@@ -175,7 +175,12 @@ struct MyCreditManager {
     
     mutating func deleteCredit() {
         while true {
-            print("성적을 삭제할 학생의 이름, 과목이름을 띄어쓰기로 구분하여 차례로 작성해주세요.\n입력 예) Mickey Swift\n")
+            print("""
+                  성적을 삭제할 학생의 이름, 과목이름을 띄어쓰기로 구분하여 차례로 작성해주세요.
+                  입력 예) Mickey Swift
+                  돌아가려면 q를 입력해주세요.
+                  
+                  """)
             
             if let input = readLine() {
                 if input == "q" {
@@ -194,7 +199,7 @@ struct MyCreditManager {
                 let subject = inputArr[1]
                 
                 guard students.contains(student) else {
-                    print("\(student)학생을 찾지 못했습니다.\n")
+                    print("\n\(student)학생을 찾지 못했습니다.\n")
                     continue
                 }
                 
@@ -208,6 +213,43 @@ struct MyCreditManager {
                 
             }
             
+        }
+    }
+    
+    
+    mutating func checkCredits() {
+        while true {
+            print("평점을 알고싶은 학생의 이름을 입력해주세요.\n돌아가려면 q를 입력해주세요.\n")
+            
+            if let input = readLine() {
+                
+                if input == "q" {
+                    print("\n메뉴로 돌아갑니다.\n")
+                    break
+                }
+                
+                if input.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    print("\n입력이 잘못되었습니다. 다시 확인해주세요.\n")
+                    continue
+                }
+                
+                guard students.contains(input) else {
+                    print("\n\(input)학생을 찾지 못했습니다.\n")
+                    continue
+                }
+                
+                guard let studentCredits = credits[input] else { break }
+                
+                var sumOfCredits: Double = 0.0
+                
+                for (subject, credit) in studentCredits {
+                    print("\(subject):\(credit)\n")
+                    sumOfCredits += Credits(rawValue: credit)?.score ?? 0.0
+                }
+                
+                print("평점 : \(sumOfCredits / Double(studentCredits.count))\n")
+                
+            }
         }
     }
     
